@@ -74,7 +74,7 @@ namespace ExteriaReversed
             public bool dormant;
         }
         */
-        //public static List<EntityData> entities = new List<EntityData>();
+        //public static List<EntityData> entitydata = new List<EntityData>();
         
         
         //public virtual bool Visible(int player)  => Read<bool>(player + Offsets.netvars.m_bSpottedByMask);
@@ -137,7 +137,7 @@ namespace ExteriaReversed
         */
         
         /*
-        internal virtual bool CanPenetrate(entityindex)
+        internal virtual bool CanPenetrate(int entityindex)
         {
               //float val = 0; 
                
@@ -147,6 +147,8 @@ namespace ExteriaReversed
               //return true
         }
         */
+            
+            
 
         // CEZA
     }
