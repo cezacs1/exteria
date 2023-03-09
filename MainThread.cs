@@ -137,7 +137,7 @@ namespace ExteriaReversed
         */
         
         /*
-        virtual void CanPenetrate(entityindex)
+        internal virtual void CanPenetrate(entityindex)
         {
               /*if (maps.parser.BSPClass.Trace(entityindex/*, vec.X, vec.Y, vec.Z, entityindex.getallbones().Closest()).GetTraceValues()) <= 0.1) return false;*/
         
