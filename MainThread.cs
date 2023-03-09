@@ -22,7 +22,7 @@ namespace ExteriaReversed
 
         //create();
 
-        //foreach (Mods virtualfeatures in features)
+        //foreach (Features virtualfeatures in features)
         //virtualfeatures.start();
         //virtualfeatures.update();
         //virtualfeatures.end();
