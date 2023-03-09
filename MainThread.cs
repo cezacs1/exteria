@@ -63,7 +63,7 @@ namespace ExteriaReversed
         //public static int maxplayer              = 0;
         
         /*
-        public struct EntityStruct
+        public struct EntityData
         {
             public int id;
             public int address;
@@ -74,6 +74,7 @@ namespace ExteriaReversed
             public bool dormant;
         }
         */
+        //public static List<EntityData> entities = new List<EntityData>();
         
         
         //public virtual bool Visible(int player)  => Read<bool>(player + Offsets.netvars.m_bSpottedByMask);
@@ -103,8 +104,8 @@ namespace ExteriaReversed
                 
                 // listeye eklemeden önce var olan verileri temizle
         
-                /*(for int i or foreach player in entityclass)*/
-                /*{
+                (for int i or foreach player in entityclass)
+                {
                 int entity = RPM<int>(Client + Offsets.signatures.dwEntityList + i * 0x10);
                 int entityhealth = RPM<int>(entity + Offsets.netvars.m_iHealth);
                 int entityteam = RPM<int>(entity + Offsets.netvars.m_iTeamNum);
@@ -113,9 +114,9 @@ namespace ExteriaReversed
                 int BoneMatrix = RPM<int>(entity + Offsets.netvars.m_dwBoneMatrix);
                 Vector3 bone = Bone(8, BoneMatrix);
 
-                //Tanımla ve entities'e ekle, sonra tekrar bu listeden oku. (foreach)
-                entities.Add(ent);
-                }*/  
+                //Tanımla ve entities'e ekle, sonra tekrar bu listeden oku.
+                entitydata.Add(ent);
+                }  
             }
 
             public virtual void update()
@@ -135,8 +136,14 @@ namespace ExteriaReversed
         }
         */
         
-
-
+        /*
+        virtual void CanPenetrate(entityindex)
+        {
+              /*if (maps.parser.BSPClass.Trace(entityindex/*, vec.X, vec.Y, vec.Z, entityindex.getallbones().Closest()).GetTraceValues()) <= 0.1) return false;*/
+        
+              //return true
+        }
+        */
 
         // CEZA
     }
