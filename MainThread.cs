@@ -79,7 +79,7 @@ namespace ExteriaReversed
         // listeye eklemeden önce var olan verileri temizle
         
         /*(for int i or foreach player in entityclass)*/
-        {
+        /*{
         int entity = Read<int>(Client + Offsets.signatures.dwEntityList + i * 0x10);
         int entityhealth = Read<int>(entity + Offsets.netvars.m_iHealth);
         int entityteam = Read<int>(entity + Offsets.netvars.m_iTeamNum);
@@ -90,7 +90,7 @@ namespace ExteriaReversed
 
         // Tanımla ve entities'e ekle, sonra tekrar bu listeden oku. (foreach)
         entities.Add(ent);
-        }         
+        }*/    
         
 
         //public virtual bool Visible(int player)  => Read<bool>(player + Offsets.netvars.m_bSpottedByMask);
