@@ -25,6 +25,7 @@ namespace ExteriaReversed
         //foreach (Mods virtualfeatures in features)
         //virtualfeatures.start();
         //virtualfeatures.update();
+        //virtualfeatures.end();
 
 
         ////////////////////////////////////////////////////////////////////////////////
@@ -75,7 +76,7 @@ namespace ExteriaReversed
 
         // Example:
         /*
-        public class Mods
+        public class Features
         {
             public virtual void start()
             {
@@ -99,11 +100,16 @@ namespace ExteriaReversed
             {
 
             }
+            
+            public virtual void end()
+            {
+            
+            }
 
             public virtual bool Visible() // test
             {
                 return true;
-            }
+            }   
         }
         */
 
