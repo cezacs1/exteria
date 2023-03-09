@@ -27,9 +27,6 @@ namespace ExteriaReversed
         //virtualfeatures.update();
         //virtualfeatures.end();
 
-
-        ////////////////////////////////////////////////////////////////////////////////
-
         //public override void Triggerbot        : Features
         //public override void Aimbot            : Features
         //public override void RecoilControl     : Features
@@ -64,15 +61,40 @@ namespace ExteriaReversed
         //public static Vector3 viewangles         = new Vector3(0, 0, 0);
         //public static Vector3 eyeposition        = new Vector3(0, 0, 0);
         //public static int maxplayer              = 0;
+        
+        /*
+        public struct EntityStruct
+        {
+            public int id;
+            public int address;
+            public int health;
+            public int team;
+            public Vector3 pos;
+            public Vector3 bonepos;
+            public bool dormant;
+        }
+        */
+        
+        
+        // listeye eklemeden önce var olan verileri temizle
+        
+        /*(for int i or foreach player in entityclass)*/
+        {
+        int entity = Read<int>(Client + Offsets.signatures.dwEntityList + i * 0x10);
+        int entityhealth = Read<int>(entity + Offsets.netvars.m_iHealth);
+        int entityteam = Read<int>(entity + Offsets.netvars.m_iTeamNum);
+        Vector3 entityposition = Read<Vector3>(entity + Offsets.netvars.m_vecOrigin);
+        bool dormant = Read<bool>(entity + Offsets.signatures.m_bDormant);
+        int BoneMatrix = Read<int>(entity + Offsets.netvars.m_dwBoneMatrix);
+        Vector3 bone = Bone(8, BoneMatrix);
 
+        // Tanımla ve entities'e ekle, sonra tekrar bu listeden oku. (foreach)
+        entities.Add(ent);
+        }         
+        
 
         //public virtual bool Visible(int player)  => Read<bool>(player + Offsets.netvars.m_bSpottedByMask);
         //public static List<string> drawstrings   =  new List<string>();
-
-
-        ////////////////////////////////////////////////////////////////////////////
-
-
 
         // Example:
         /*
@@ -112,6 +134,7 @@ namespace ExteriaReversed
             }   
         }
         */
+        
 
 
 
