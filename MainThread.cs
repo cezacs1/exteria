@@ -76,26 +76,10 @@ namespace ExteriaReversed
         */
         
         
-        // listeye eklemeden önce var olan verileri temizle
-        
-        /*(for int i or foreach player in entityclass)*/
-        /*{
-        int entity = RPM<int>(Client + Offsets.signatures.dwEntityList + i * 0x10);
-        int entityhealth = RPM<int>(entity + Offsets.netvars.m_iHealth);
-        int entityteam = RPM<int>(entity + Offsets.netvars.m_iTeamNum);
-        Vector3 entityposition = RPM<Vector3>(entity + Offsets.netvars.m_vecOrigin);
-        bool dormant = RPM<bool>(entity + Offsets.signatures.m_bDormant);
-        int BoneMatrix = RPM<int>(entity + Offsets.netvars.m_dwBoneMatrix);
-        Vector3 bone = Bone(8, BoneMatrix);
-
-        // Tanımla ve entities'e ekle, sonra tekrar bu listeden oku. (foreach)
-        entities.Add(ent);
-        }*/    
-        
-
         //public virtual bool Visible(int player)  => Read<bool>(player + Offsets.netvars.m_bSpottedByMask);
         //public static List<string> drawstrings   =  new List<string>();
 
+        
         // Example:
         /*
         public class Features
@@ -116,6 +100,22 @@ namespace ExteriaReversed
                 eyeposition.Z = RPM<float>(local + Offsets.netvars.m_vecViewOffset + 8) + RPM<float>(local + Offsets.netvars.m_vecOrigin + 8);
 
                 maxplayer = RPM<int>(clientstate + Offsets.signatures.dwClientState_MaxPlayer);
+                
+                // listeye eklemeden önce var olan verileri temizle
+        
+                /*(for int i or foreach player in entityclass)*/
+                /*{
+                int entity = RPM<int>(Client + Offsets.signatures.dwEntityList + i * 0x10);
+                int entityhealth = RPM<int>(entity + Offsets.netvars.m_iHealth);
+                int entityteam = RPM<int>(entity + Offsets.netvars.m_iTeamNum);
+                Vector3 entityposition = RPM<Vector3>(entity + Offsets.netvars.m_vecOrigin);
+                bool dormant = RPM<bool>(entity + Offsets.signatures.m_bDormant);
+                int BoneMatrix = RPM<int>(entity + Offsets.netvars.m_dwBoneMatrix);
+                Vector3 bone = Bone(8, BoneMatrix);
+
+                //Tanımla ve entities'e ekle, sonra tekrar bu listeden oku. (foreach)
+                entities.Add(ent);
+                }*/  
             }
 
             public virtual void update()
