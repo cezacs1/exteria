@@ -4,7 +4,7 @@ namespace ExteriaReversed
     public class virtuals
     {
         /*
-        public static List<Features> features = new List<Mods>();
+        public static List<Features> features = new List<Features>();
 
         public static void create()
         {
