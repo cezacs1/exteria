@@ -77,7 +77,7 @@ namespace ExteriaReversed
         //public static List<EntityData> entitydata = new List<EntityData>();
         
         
-        //public virtual bool Visible(int player)  => Read<bool>(player + Offsets.netvars.m_bSpottedByMask);
+        //public virtual bool Visible(int player)  => RPM<bool>(player + Offsets.netvars.m_bSpottedByMask);
         //public static List<string> drawstrings   =  new List<string>();
 
         
