@@ -60,6 +60,7 @@ public class Start
         }
         catch (Exception E)
         {
+            // DLL çağrılırken ya da yürütülürken hata oluştu
             MessageBox.Show(CallReason.DLL_PROCESS_ERROR.ToString() + "\n" + E.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
@@ -109,6 +110,7 @@ public class Start
             System.Diagnostics.Process.GetCurrentProcess().Kill();
         }
     }
+    
     public static void RenameRunner()
     {
         AssemblyName myAssemblyName = new AssemblyName();
