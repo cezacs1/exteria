@@ -5,6 +5,7 @@ using System.Linq;
 using System.Reflection;
 using System.Security.Principal;
 using System.Threading;
+using System.Windows.Forms;
 
 public class Start
 {
@@ -22,39 +23,46 @@ public class Start
         StartAsAdmin();
         RenameRunner();
 
-        switch (reason_for_start)
+        try
         {
-            case (int)CallReason.DLL_PROCESS_START_ADMIN:
-                {
-                    Entry.DLLMain("CEZA", CallReason.DLL_PROCESS_START_ADMIN, false);
-                    break;
-                }
-
-            case (int)CallReason.DLL_PROCESS_START:
-                {
-                    Console.WriteLine("Lisansınızı veya sipariş id'nizi girin:");
-                    licence = Console.ReadLine();
-
-                    Entry.DLLMain(licence, CallReason.DLL_PROCESS_START, IsUnderDebugger());
-                    break;
-                }
-
-            case (int)CallReason.DLL_THREAD_START:
-                {
-                    Console.WriteLine("Lisansınızı veya sipariş id'nizi girin:");
-                    licence = Console.ReadLine();
-
-                    new Thread(() =>
+            switch (reason_for_start)
+            {
+                case (int)CallReason.DLL_PROCESS_START_ADMIN:
                     {
-                        Entry.DLLMain(licence, CallReason.DLL_THREAD_START, IsUnderDebugger());
-                    }).Start();
-                    break;
-                }
+                        Entry.DLLMain("CEZA", CallReason.DLL_PROCESS_START_ADMIN, false);
+                        break;
+                    }
 
-            default:
-                break;
+                case (int)CallReason.DLL_PROCESS_START:
+                    {
+                        Console.WriteLine("Lisansınızı veya sipariş id'nizi girin:");
+                        licence = Console.ReadLine();
+
+                        Entry.DLLMain(licence, CallReason.DLL_PROCESS_START, IsUnderDebugger());
+                        break;
+                    }
+
+                case (int)CallReason.DLL_THREAD_START:
+                    {
+                        Console.WriteLine("Lisansınızı veya sipariş id'nizi girin:");
+                        licence = Console.ReadLine();
+
+                        new Thread(() =>
+                        {
+                            Entry.DLLMain(licence, CallReason.DLL_THREAD_START, IsUnderDebugger());
+                        }).Start();
+                        break;
+                    }
+
+                default:
+                    break;
+            }
         }
-        
+        catch (Exception E)
+        {
+            MessageBox.Show(CallReason.DLL_PROCESS_ERROR.ToString() + "\n" + E.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
+
         //Console.WriteLine("DLL Closed?");
         //Console.ReadKey();
         Environment.Exit(0);
@@ -120,5 +128,6 @@ public class Start
     }
 
     public static string licence;
+
     static bool IsUnderDebugger() => Debugger.IsAttached || Debugger.IsLogging();
 }
