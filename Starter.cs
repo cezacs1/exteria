@@ -35,7 +35,7 @@ public class Start
                     Console.WriteLine("Lisansınızı veya sipariş id'nizi girin:");
                     licence = Console.ReadLine();
 
-                    Entry.DLLMain(licence, CallReason.DLL_PROCESS_START, UnderDebugger());
+                    Entry.DLLMain(licence, CallReason.DLL_PROCESS_START, IsUnderDebugger());
                     break;
                 }
 
@@ -46,7 +46,7 @@ public class Start
 
                     new Thread(() =>
                     {
-                        Entry.DLLMain(licence, CallReason.DLL_THREAD_START, UnderDebugger());
+                        Entry.DLLMain(licence, CallReason.DLL_THREAD_START, IsUnderDebugger());
                     }).Start();
                     break;
                 }
@@ -90,10 +90,12 @@ public class Start
             {
                 // İşlem oluşturulurken hata oluştu
                 // Hata mesajını göstermek için ex.Message kullanılabilir
+                Console.WriteLine(ex);
             }
 
             // Şu anki işlemi sonlandır
             Environment.Exit(0);
+            //yada
             System.Diagnostics.Process.GetCurrentProcess().Kill();
         }
     }
@@ -116,5 +118,5 @@ public class Start
     }
 
     public static string licence;
-    static bool UnderDebugger() => Debugger.IsAttached || Debugger.IsLogging();
+    static bool IsUnderDebugger() => Debugger.IsAttached || Debugger.IsLogging();
 }
