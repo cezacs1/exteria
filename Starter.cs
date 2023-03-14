@@ -55,6 +55,9 @@ public class Start
                 break;
         }
 
+        
+        //Console.WriteLine("DLL Closed?");
+        //Console.ReadKey();
         Environment.Exit(0);
     }
 
