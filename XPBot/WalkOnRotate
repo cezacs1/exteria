@@ -1,4 +1,4 @@
-// moves with viewangles
+// move with viewangles
 
         private static void WalkOnRotate(Vector2 localposition, Vector3 viewangles, Vector2 nextposition)
         {
@@ -38,5 +38,5 @@
                 return;
             }
 
-            SetWalk(yön, localposition, nextposition);
+            SetWalk(yön, localposition, nextposition/*GetClosestEntity*/);
         }
